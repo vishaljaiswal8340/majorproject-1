@@ -1,33 +1,11 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WanderLust</title>
-</head> -->
-<% layout("/layouts/boilerplate")%>
+<% layout("/layouts/boilerplate") %>
+
 <body>
-    <!-- <h3>Edit your listing</h3>
-    <form method="post"  action="/listings/<%= listing._id %>?_method=put">
-        <input type="text" name="listing[title]" value="<%= listing.title %>">
-        <br>
-       <textarea type="text"
-       name="listing[description]"><%= listing.description %></textarea>
-        <br>
-        <input type="text" name="listing[image][url]" value="<%= listing.image.url %>" >
-        <br>
-        <input type="number" name="listing[price]" value="<%= listing.price %>" >
-        <br>
-        <input type="text" name="listing[location]" value="<%= listing.location %>" >
-        <br>
-        <input type="text" name="listing[country]" value="<%= listing.country %>" >
-        <br>
-        <button>Edit</button>
-    </form> -->
-    <div class="row mt-3">
+    
+     <div class="row mt-3">
         <div class="col-8 offset-2" >
             <h3>Edit your listing</h3>
-            <form method="post"  action="/listings/<%= listing._id %>?_method=put" class="needs-validation" novalidate>
+            <form method="post"  action="/listings/<%= listing._id %>?_method=put" class="needs-validation" novalidate enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" name="listing[title]" value="<%= listing.title %>" class="form-control" required>
@@ -36,10 +14,20 @@
                     <label for="description" class="form-label">Description</label>
                     <textarea type="text" name="listing[description]"  class="form-control" required><%= listing.description %> </textarea>
                 </div>
+
+                 
+                     <div class="mb-3 ">
+                        Original listing image <br>
+                         <img src="<%=originalimageurl %>" alt="" style="width: 200px;">
+                     </div>
+
+               
+               
+
                 <div class="mb-3">
-                    <label for="url" class="form-label" >Image url</label>
-                    <input type="text" name="listing[image][url]" value="<%= listing.image.url %>" class="
-                    form-control" required>
+                    <label for="url" class="form-label" >Upload new Image</label>
+                    <input id="url" type="file" name="listing[image][url]" class="
+                    form-control" >
                 </div>
 
                 <div class="row">
@@ -50,7 +38,7 @@
                         </div>
                         <div class="mb-3 col-md-8">
                             <label for="country" class="form-label">Country</label>
-                            <input type="text" name="listing[country]" value="<%= listing.country %>" class="form-control"required>
+                            <input type="text" name="listing[country]" value="<%= listing.country %>" class="form-control" required>
                        
                     </div>
                     
@@ -71,6 +59,6 @@
 
         
     </div>
-   
+    
 </body>
 </html>

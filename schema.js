@@ -1,5 +1,8 @@
+//joi is The most powerful schema description language and data validator for JavaScript.
+
 const Joi = require('joi');
 
+//joi ki help i am defining the schema
 module.exports.listingSchema = Joi.object({
     listing: Joi.object({
        title:Joi.string().required(),
@@ -14,6 +17,7 @@ module.exports.listingSchema = Joi.object({
 
 
 })
+
 module.exports.reviewSchema=Joi.object({
      review:Joi.object({
       comment:Joi.string().required(),
